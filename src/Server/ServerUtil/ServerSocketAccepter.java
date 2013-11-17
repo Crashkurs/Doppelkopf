@@ -4,12 +4,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
- * Doppelkopf-Projekt
- * Benutzer: Mats
- * Datum: 17.11.13
- * Klasse: ServerSocketAccepter
- */
 public class ServerSocketAccepter extends Thread
 {
     private ServerSocket socket;
