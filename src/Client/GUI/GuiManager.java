@@ -5,6 +5,7 @@ import Client.Controller.Controller;
 import Client.GUI.Game.GameGui;
 import Client.GUI.Lobby.LobbyGui;
 import Client.GUI.Login.LoginGui;
+import Util.State;
 
 import javax.swing.*;
 
@@ -12,13 +13,12 @@ public class GuiManager extends JPanel implements GuiManagerInterface
 {
 
     private Controller controller;
-    private int state = 0;
 
     private GameGui game;
     private LobbyGui lobby;
     private LoginGui login;
 
-    public static int loginState = 0, lobbyState = 1, gameState = 2;
+    public static State state;
 
     public GuiManager()
     {
@@ -31,7 +31,7 @@ public class GuiManager extends JPanel implements GuiManagerInterface
         add(login);
     }
 
-    public void setState(int _state)
+    public void setState(State _state)
     {
         if(getWidth() > 0 && getHeight() > 0)
         {
@@ -46,11 +46,11 @@ public class GuiManager extends JPanel implements GuiManagerInterface
 
     public JPanel getGui()
     {
-        if(state == loginState)
+        if(state == State.Login)
             return (JPanel)login;
-        if(state == lobbyState)
+        if(state == State.Lobby)
             return (JPanel)lobby;
-        if(state == gameState)
+        if(state == State.Game)
             return (JPanel)game;
         System.out.println("Fehler im GuiManager: state ist "+state);
         return null;

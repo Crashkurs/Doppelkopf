@@ -2,6 +2,7 @@ package Server;
 
 import Server.GUI.GuiManager;
 import Server.ServerUtil.ServerHelper;
+import Util.State;
 
 import javax.swing.*;
 
@@ -24,7 +25,7 @@ public class ServerApp extends JFrame
 
         add(ServerHelper.getGuiManager());
         ServerHelper.getGuiManager().setBounds(0, 0, width, height);
-        ServerHelper.getGuiManager().setState(GuiManager.loginState);
+        ServerHelper.getGuiManager().setState(State.Login);
 
         ServerHelper.getNetworkManager().connect(3000);
     }

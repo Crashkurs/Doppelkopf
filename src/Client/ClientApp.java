@@ -2,6 +2,7 @@ package Client;
 
 import Client.ClientUtil.ClientHelper;
 import Client.GUI.GuiManager;
+import Util.State;
 
 import javax.swing.*;
 
@@ -25,7 +26,7 @@ public class ClientApp extends JFrame
 
         add(ClientHelper.getGuiManager());
         ClientHelper.getGuiManager().setBounds(0, 0, width, height);
-        ClientHelper.getGuiManager().setState(GuiManager.loginState);
+        ClientHelper.getGuiManager().setState(State.Login);
 
         ClientHelper.getNetworkManager().connect("127.0.0.1", 3000);
         ClientHelper.getNetworkManager().sendMessageToAll("hey Leute");
