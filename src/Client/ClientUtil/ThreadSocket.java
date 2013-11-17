@@ -1,6 +1,7 @@
-package Util;
+package Client.ClientUtil;
 
 import Server.ServerUtil.ServerHelper;
+import Util.SocketReader;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -73,7 +74,7 @@ public class ThreadSocket implements SocketReader
 
     public void receiveMessage(String message, String ip, int port)
     {
-        ServerHelper.getNetworkManager().receiveMessage(message, ip, port);
+        ClientHelper.getNetworkManager().receiveMessage(message, ip, port);
     }
 
     public void close()

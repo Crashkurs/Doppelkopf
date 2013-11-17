@@ -3,7 +3,7 @@ package Server.Network;
 import Server.ServerUtil.ServerHelper;
 import Server.ServerUtil.ServerSocketAccepter;
 import Util.SocketReader;
-import Util.ThreadSocket;
+import Server.ServerUtil.ThreadSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 

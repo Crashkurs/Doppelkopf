@@ -2,7 +2,7 @@ package Client.Network;
 
 import Client.ClientUtil.ClientHelper;
 import Util.SocketReader;
-import Util.ThreadSocket;
+import Server.ServerUtil.ThreadSocket;
 
 import java.util.LinkedList;
 

@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dba48d3a-b6ce-461e-a37c-f5ddcc387704" name="Default" comment="Export für Eclipse">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/ServerUtil/Deck.java" afterPath="$PROJECT_DIR$/src/Server/ServerUtil/Deck.java" />
+    <list default="true" id="dba48d3a-b6ce-461e-a37c-f5ddcc387704" name="Default" comment="Deck wird bei Reset gemischt">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Client/ClientUtil/ThreadSocket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Client/Network/NetworkManager.java" afterPath="$PROJECT_DIR$/src/Client/Network/NetworkManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server/Network/NetworkManager.java" afterPath="$PROJECT_DIR$/src/Server/Network/NetworkManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\Projekte\Doppelkopf\src\Util\ThreadSocket.java" afterPath="$PROJECT_DIR$/src/Server/ServerUtil/ThreadSocket.java" />
     </list>
-    <ignored path="Doppelkopf.iws" />
-    <ignored path=".idea/workspace.xml" />
+    <ignored mask=".xml" />
+    <ignored mask=".name" />
     <file path="/GuiManagerImpl.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384560733617" ignored="false" />
     <file path="/AbstractGuiManager.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384560371131" ignored="false" />
     <file path="/ControllerImpl.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384570973453" ignored="false" />
     <file path="/AbstractController.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384565221822" ignored="false" />
     <file path="/DokoHelper.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659925665" ignored="false" />
     <file path="/ClientApp.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659983621" ignored="false" />
-    <file path="/fragment.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659096317" ignored="false" />
+    <file path="/fragment.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384670787932" ignored="false" />
     <file path="/a.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384568831487" ignored="false" />
     <file path="/sample.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384568807275" ignored="false" />
     <file path="/NetworkManager.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384652860412" ignored="false" />
     <file path="/GuiManager.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384631635349" ignored="false" />
     <file path="/Controller.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384646967205" ignored="false" />
-    <file path="/ThreadSocket.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384658412528" ignored="false" />
+    <file path="/ThreadSocket.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384670796132" ignored="false" />
     <file path="/SocketReader.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384632271356" ignored="false" />
     <file path="/DatabaseManager.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384576110292" ignored="false" />
     <file path="/GameGui.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384630793221" ignored="false" />
@@ -30,7 +33,7 @@
     <file path="/ServerSocketAccepter.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384652758104" ignored="false" />
     <file path="/ServerHelper.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659943674" ignored="false" />
     <file path="/ClientHelper.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659844932" ignored="false" />
-    <file path="/Dummy.txt" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669907256" ignored="false" />
+    <file path="/Dummy.txt" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384670616112" ignored="false" />
     <file path="/Karte.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669110777" ignored="false" />
     <file path="/Farbe.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669031868" ignored="false" />
     <file path="/Deck.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669960765" ignored="false" />
@@ -97,25 +100,16 @@
       <file leaf-file-name="ServerHelper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/ServerHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="8" selection-start="290" selection-end="308" vertical-scroll-proportion="0.0">
+            <state line="13" column="27" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Karte.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Util/Karte.java">
+      <file leaf-file-name="ThreadSocket.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/ThreadSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="5" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Deck.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/Deck.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="34" selection-start="956" selection-end="956" vertical-scroll-proportion="0.8468468">
+            <state line="82" column="5" selection-start="2272" selection-end="2272" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,11 +117,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DokoHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Util/DokoHelper.java">
+      <file leaf-file-name="ThreadSocket.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Client/ClientUtil/ThreadSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+            <state line="73" column="27" selection-start="2066" selection-end="2066" vertical-scroll-proportion="0.536036">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Deck.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/Deck.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="73" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,8 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Server/Util/ServerSocketAccepter.java" />
-        <option value="$PROJECT_DIR$/src/Server/Network/NetworkManager.java" />
         <option value="$PROJECT_DIR$/src/Client/Network/NetworkManager.java" />
         <option value="$PROJECT_DIR$/src/Server/ServerUtil/DokoHelper.java" />
         <option value="$PROJECT_DIR$/src/Client/ClientUtil/DokoHelper.java" />
@@ -181,6 +184,8 @@
         <option value="$PROJECT_DIR$/src/Util/Karte.java" />
         <option value="$PROJECT_DIR$/src/Util/Deck.java" />
         <option value="$PROJECT_DIR$/src/Server/ServerUtil/Deck.java" />
+        <option value="$PROJECT_DIR$/src/Server/ServerUtil/ThreadSocket.java" />
+        <option value="$PROJECT_DIR$/src/Client/ClientUtil/ThreadSocket.java" />
       </list>
     </option>
   </component>
@@ -309,6 +314,54 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Doppelkopf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Doppelkopf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Doppelkopf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Doppelkopf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ClientUtil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -345,7 +398,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Ignored.Files" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -354,6 +407,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Client.ClientUtil" />
       <recent name="Client.Util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -549,12 +603,20 @@
       <created>1384669880129</created>
       <updated>1384669880129</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Deck wird bei Reset gemischt">
+      <created>1384670011701</created>
+      <updated>1384670011701</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Deck wird bei Reset gemischt">
+      <created>1384670078125</created>
+      <updated>1384670078125</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="10" width="1580" height="860" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952926" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -576,8 +638,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2516469" sideWeight="0.6704708" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24967062" sideWeight="0.6704708" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2516469" sideWeight="0.6704708" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967062" sideWeight="0.6704708" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3266762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -625,9 +687,9 @@
     <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
     <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deck für Karten erstellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deck wird bei Reset gemischt" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -645,6 +707,7 @@
     <MESSAGE value="Export für Eclipse" />
     <MESSAGE value="Klasse für Karten hinzugefügt" />
     <MESSAGE value="Deck für Karten erstellt" />
+    <MESSAGE value="Deck wird bei Reset gemischt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -654,13 +717,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Client/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="102" selection-start="115" selection-end="115" vertical-scroll-proportion="0.15111111">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/ServerSocketAccepter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="110" selection-end="110" vertical-scroll-proportion="0.12592593">
@@ -673,20 +729,6 @@
     <entry file="file://$PROJECT_DIR$/src/Server/ServerApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="64" selection-start="86" selection-end="86" vertical-scroll-proportion="0.10074074">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/ThreadSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="121" selection-end="121" vertical-scroll-proportion="0.025185185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/SocketReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="17" selection-start="32" selection-end="32" vertical-scroll-proportion="0.05037037">
           <folding />
         </state>
       </provider>
@@ -705,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/Network/NetworkManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="7" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/ClientUtil/ClientHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="26" selection-start="308" selection-end="308" vertical-scroll-proportion="0.32740742">
@@ -721,30 +756,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-16.329466">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/ServerHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="8" selection-start="290" selection-end="308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Util/Typ.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="7" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/DokoHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -756,19 +770,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/Karte.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.4779582">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/DokoHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="13" selection-start="28" selection-end="28" vertical-scroll-proportion="0.076576576">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="34" selection-start="956" selection-end="956" vertical-scroll-proportion="0.8468468">
+        <state line="49" column="73" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/Karte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="5" selection-start="382" selection-end="382" vertical-scroll-proportion="0.5022523">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/SocketReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="32" selection-end="32" vertical-scroll-proportion="0.076576576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/ServerHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="27" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/ServerUtil/ThreadSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="5" selection-start="2272" selection-end="2272" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/Network/NetworkManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="7" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.1654847">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/ClientUtil/ThreadSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="27" selection-start="2066" selection-end="2066" vertical-scroll-proportion="0.536036">
+          <folding />
         </state>
       </provider>
     </entry>
