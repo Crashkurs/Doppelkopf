@@ -46,7 +46,10 @@ public class Deck
 
     public void resetDeck()
     {
+<<<<<<< HEAD
         Collections.shuffle(karten);
+=======
+>>>>>>> origin/master
         deck = karten;
     }
 
