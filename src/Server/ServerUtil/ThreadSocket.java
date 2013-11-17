@@ -82,6 +82,21 @@ public class ThreadSocket implements SocketReader
         System.gc();
     }
 
+    public String getIp()
+    {
+        return ip;
+    }
+
+    public int getPort()
+    {
+        return port;
+    }
+
+    public boolean isConnected()
+    {
+        return socket.isConnected();
+    }
+
     private class NetworkThread extends Thread
     {
         private ThreadSocket threadSocket;

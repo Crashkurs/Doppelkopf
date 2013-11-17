@@ -29,6 +29,8 @@ public class GuiManager extends JPanel implements GuiManagerInterface
         add(lobby);
         login = new LoginGui();
         add(login);
+
+        state = State.Login;
     }
 
     public void setState(State _state)

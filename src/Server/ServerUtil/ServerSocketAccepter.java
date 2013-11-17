@@ -8,8 +8,6 @@ public class ServerSocketAccepter extends Thread
 {
     private ServerSocket socket;
 
-    private static String CLASS= "ServerSocketAccepter";
-
     public ServerSocketAccepter(int port)
     {
         super();

@@ -1,5 +1,6 @@
 package Server.Network;
 
+import Server.ServerUtil.Client;
 import Server.ServerUtil.ServerHelper;
 import Server.ServerUtil.ServerSocketAccepter;
 import Util.SocketReader;
@@ -9,12 +10,12 @@ import java.util.LinkedList;
 
 public class NetworkManager implements NetworkManagerInterface, SocketReader
 {
-    private LinkedList<ThreadSocket> sockets;
+    private LinkedList<Client> clients;
     private ServerSocketAccepter accepter;
 
     public NetworkManager()
     {
-        sockets = new LinkedList<ThreadSocket>();
+        clients = new LinkedList<Client>();
     }
 
     public void connect(int port)
@@ -25,7 +26,8 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void createSocket(Socket s)
     {
-        sockets.add(new ThreadSocket(s));
+        ThreadSocket tmp = new ThreadSocket(s);
+        clients.add(new Client("",tmp));
     }
 
     public void sendMessage(String message)
@@ -36,7 +38,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
     public void sendMessage(String message, int index)
     {
         try{
-            sockets.get(index).sendMessage(message);
+            clients.get(index).sendMessage(message);
         }
         catch(NullPointerException e)
         {
@@ -46,16 +48,26 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessageToAll(String message)
     {
-        if(sockets.size() == 0)
+        if(clients.size() == 0)
             System.out.println("Keine Sockets vorhanden für sendMessageToAll");
-        for(ThreadSocket socket : sockets)
+        for(Client client : clients)
         {
-            socket.sendMessage(message);
+            client.sendMessage(message);
         }
     }
 
     public void receiveMessage(String message, String ip, int port)
     {
         ServerHelper.getController().receiveMessage(message);
+    }
+
+    public void clientClosed(Client client)
+    {
+        if(clients.contains(client))
+        {
+            clients.remove(client);
+        }else{
+           System.out.println("Client wurde geschlossen, ist aber nicht in der Clientliste");
+        }
     }
 }
