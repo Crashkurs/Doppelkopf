@@ -101,7 +101,7 @@ public class ThreadSocket implements SocketReader
 
         public void run()
         {
-            while(threadSocket != null && socket.isConnected())
+            while(threadSocket != null && !socket.isClosed())
             {
                 try{
                     String message = reader.readLine();
@@ -114,6 +114,7 @@ public class ThreadSocket implements SocketReader
                 }
             }
             System.out.println("Networkthread closed");
+            close();
         }
 
         public void close()

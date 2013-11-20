@@ -55,13 +55,12 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessageToAll(String message)
     {
+        System.out.println(message);
         sendMessageToAll(new Message(MessageType.GENERAL, message));
     }
 
     public void sendMessageToAll(Message message)
     {
-        if(clients.size() == 0)
-            System.out.println("Keine Sockets vorhanden für sendMessageToAll (Nachricht: " + message.getFullMessage() + ")");
         for(Client client : clients)
         {
             client.sendMessage(message.getFullMessage());
@@ -79,6 +78,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
     {
         if(clients.contains(client))
         {
+            System.out.println("Entferne geschlossenen Client");
             clients.remove(client);
         }else{
            System.out.println("Client wurde geschlossen, ist aber nicht in der Clientliste");

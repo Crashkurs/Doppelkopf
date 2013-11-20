@@ -94,7 +94,7 @@ public class ThreadSocket implements SocketReader
 
     public boolean isConnected()
     {
-        return socket.isConnected();
+        return !socket.isClosed();
     }
 
     private class NetworkThread extends Thread
@@ -128,6 +128,7 @@ public class ThreadSocket implements SocketReader
                 }
             }
             System.out.println("Networkthread closed");
+            close();
         }
 
         public void close()

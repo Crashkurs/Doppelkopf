@@ -75,6 +75,11 @@ public class Client
         return port;
     }
 
+    public boolean isConnected()
+    {
+        return socket.isConnected();
+    }
+
     public void addKarte(Karte karte)
     {
         hand.add(karte);

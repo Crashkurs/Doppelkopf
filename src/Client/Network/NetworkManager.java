@@ -37,7 +37,12 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
     public void sendMessage(Message message, int index)
     {
         try{
-            sockets.get(index).sendMessage(message.getFullMessage());
+            if(sockets.get(index).isConnected())
+            {
+                sockets.get(index).sendMessage(message.getFullMessage());
+            }else{
+                sockets.remove(index);
+            }
         }
         catch(NullPointerException e)
         {
@@ -52,8 +57,11 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessageToAll(Message message)
     {
-        if(sockets.size() == 0)
-            System.out.println("Keine Sockets vorhanden für sendMessageToAll (Nachricht: " + message.getFullMessage() + ")");
+        for(ThreadSocket socket : sockets)
+        {
+            if(!socket.isConnected())
+                sockets.remove(socket);
+        }
         for(ThreadSocket socket : sockets)
         {
             socket.sendMessage(message.getFullMessage());
