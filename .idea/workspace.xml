@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="dba48d3a-b6ce-461e-a37c-f5ddcc387704" name="Default" comment="Gitignore für xml Dateien">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.gitignore" afterPath="$PROJECT_DIR$/.idea/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/.gitignore" afterPath="$PROJECT_DIR$/META-INF/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="D:\Projekte\Doppelkopf\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored mask="*.xml" />
     <ignored mask="*.name" />
@@ -35,7 +33,7 @@
     <file path="/ServerSocketAccepter.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384652758104" ignored="false" />
     <file path="/ServerHelper.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659943674" ignored="false" />
     <file path="/ClientHelper.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659844932" ignored="false" />
-    <file path="/Dummy.txt" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384933560962" ignored="false" />
+    <file path="/Dummy.txt" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384933912842" ignored="false" />
     <file path="/Karte.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669110777" ignored="false" />
     <file path="/Farbe.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669031868" ignored="false" />
     <file path="/Deck.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669960765" ignored="false" />
@@ -127,7 +125,7 @@
       <file leaf-file-name="DokoHelper.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Util/DokoHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="106" selection-start="601" selection-end="601" vertical-scroll-proportion="0.59002167">
+            <state line="48" column="30" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.84815615">
               <folding />
             </state>
           </provider>
@@ -178,10 +176,10 @@
         <option value="$PROJECT_DIR$/src/Server/ServerUtil/ServerSocketAccepter.java" />
         <option value="$PROJECT_DIR$/src/Server/ServerUtil/ThreadSocket.java" />
         <option value="$PROJECT_DIR$/src/Util/Message.java" />
-        <option value="$PROJECT_DIR$/src/Util/DokoHelper.java" />
         <option value="$PROJECT_DIR$/src/Server/ServerApp.java" />
         <option value="$PROJECT_DIR$/.idea/.gitignore" />
         <option value="$PROJECT_DIR$/META-INF/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Util/DokoHelper.java" />
       </list>
     </option>
   </component>
@@ -621,12 +619,16 @@
       <created>1384933524940</created>
       <updated>1384933524940</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Gitignore für xml Dateien">
+      <created>1384933809712</created>
+      <updated>1384933809712</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32823366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -649,7 +651,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24774775" sideWeight="0.6773296" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24774775" sideWeight="0.6773296" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32267037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967062" sideWeight="0.6704708" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -817,9 +819,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/ServerApp.java">
+    <entry file="file://$PROJECT_DIR$/.idea/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="55" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0">
+        <state line="0" column="10" selection-start="5" selection-end="17" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -831,16 +833,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/Server/ServerApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="10" selection-start="5" selection-end="17" vertical-scroll-proportion="0.0">
+        <state line="24" column="55" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Util/DokoHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="106" selection-start="601" selection-end="601" vertical-scroll-proportion="0.59002167">
+        <state line="48" column="30" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.84815615">
           <folding />
         </state>
       </provider>
