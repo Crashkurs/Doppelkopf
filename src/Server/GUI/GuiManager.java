@@ -5,6 +5,7 @@ import Server.GUI.Game.GameGui;
 import Server.GUI.Lobby.LobbyGui;
 import Server.GUI.Login.LoginGui;
 import Server.ServerUtil.ServerHelper;
+import Util.LogType;
 import Util.State;
 
 import javax.swing.*;
@@ -41,7 +42,7 @@ public class GuiManager extends JPanel implements GuiManagerInterface
             state = _state;
             getGui().setVisible(true);
         }else{
-            System.out.println("GuiManager: setState wurde vor setBounds aufgerufen");
+            ServerHelper.log(LogType.GUI, "GuiManager: setState wurde vor setBounds aufgerufen");
         }
 
     }
@@ -54,7 +55,7 @@ public class GuiManager extends JPanel implements GuiManagerInterface
             return (JPanel)lobby;
         if(state == State.Game)
             return (JPanel)game;
-        System.out.println("Fehler im GuiManager: state ist "+state);
+        ServerHelper.log(LogType.GUI, "Fehler im GuiManager: state ist "+state);
         return null;
     }
 

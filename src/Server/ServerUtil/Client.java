@@ -1,6 +1,7 @@
 package Server.ServerUtil;
 
 import Util.Karte;
+import Util.LogType;
 
 import java.net.Socket;
 import java.util.ArrayList;
@@ -91,7 +92,7 @@ public class Client
         {
             hand.remove(karte);
         }else{
-            System.out.println("Fehler: Client " + name + "(" + ip + ":" + port + ") hat eine nicht vorhandene Karte (" + karte.getFarbe() + "|" + karte.getTyp() + ") gelegt." );
+            ServerHelper.log(LogType.SERVERUTIL, "Fehler: Client " + name + "(" + ip + ":" + port + ") hat eine nicht vorhandene Karte (" + karte.getFarbe() + "|" + karte.getTyp() + ") gelegt.");
         }
     }
 
@@ -101,7 +102,7 @@ public class Client
         {
             socket.sendMessage(message);
         }else{
-            System.out.println("Konnte Nachricht nicht senden, da Socket geschlossen ist");
+            ServerHelper.log(LogType.SERVERUTIL, "Konnte Nachricht nicht senden, da Socket geschlossen ist");
             ServerHelper.getNetworkManager().clientClosed(this);
         }
     }

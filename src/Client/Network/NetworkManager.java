@@ -1,6 +1,7 @@
 package Client.Network;
 
 import Client.ClientUtil.ClientHelper;
+import Util.LogType;
 import Util.Message;
 import Util.MessageType;
 import Util.SocketReader;
@@ -46,7 +47,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         }
         catch(NullPointerException e)
         {
-            System.out.println("Socket mit Index " + index + " ist nicht vorhanden");
+            ClientHelper.log(LogType.NETWORK, "Socket mit Index " + index + " ist nicht vorhanden");
         }
     }
 
@@ -65,7 +66,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         for(ThreadSocket socket : sockets)
         {
             socket.sendMessage(message.getFullMessage());
-            System.out.println("Sende Nachricht [Typ: " + message.getType().name() + "]: " + message.getMessage());
+            ClientHelper.log(LogType.NETWORK, "Sende Nachricht [Typ: " + message.getType().name() + "]: " + message.getMessage());
         }
     }
 

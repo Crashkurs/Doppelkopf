@@ -3,6 +3,7 @@ package Server.Network;
 import Server.ServerUtil.Client;
 import Server.ServerUtil.ServerHelper;
 import Server.ServerUtil.ServerSocketAccepter;
+import Util.LogType;
 import Util.Message;
 import Util.MessageType;
 import Util.SocketReader;
@@ -49,7 +50,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         }
         catch(NullPointerException e)
         {
-            System.out.println("Socket mit Index " + index + " ist nicht vorhanden");
+            ServerHelper.log(LogType.NETWORK, "Socket mit Index " + index + " ist nicht vorhanden");
         }
     }
 
@@ -64,7 +65,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         for(Client client : clients)
         {
             client.sendMessage(message.getFullMessage());
-            System.out.println("Sende Nachricht [Typ: " + message.getType().name() + "]: " + message.getMessage());
+            ServerHelper.log(LogType.NETWORK, "Sende Nachricht [Typ: " + message.getType().name() + "]: " + message.getMessage());
         }
     }
 
@@ -78,10 +79,10 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
     {
         if(clients.contains(client))
         {
-            System.out.println("Entferne geschlossenen Client");
+            ServerHelper.log(LogType.NETWORK, "Entferne geschlossenen Client");
             clients.remove(client);
         }else{
-           System.out.println("Client wurde geschlossen, ist aber nicht in der Clientliste");
+            ServerHelper.log(LogType.NETWORK, "Client wurde geschlossen, ist aber nicht in der Clientliste");
         }
     }
 }

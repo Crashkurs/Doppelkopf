@@ -32,10 +32,10 @@ public class Message
             }
             catch(NumberFormatException e)
             {
-                System.out.println("Ungültiger Nachrichtentyp spezifiziert");
+                DokoHelper.log(LogType.UTIL, "Ungültiger Nachrichtentyp spezifiziert");
             }
         }else{
-            System.out.println("Fehler beim Initialisieren einer Nachricht: Kein Typ spezifiziert");
+            DokoHelper.log(LogType.UTIL, "Fehler beim Initialisieren einer Nachricht: Kein Typ spezifiziert");
         }
     }
 

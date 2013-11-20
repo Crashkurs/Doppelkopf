@@ -1,5 +1,7 @@
 package Server.ServerUtil;
 
+import Util.LogType;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,7 +19,7 @@ public class ServerSocketAccepter extends Thread
         }
         catch (IOException e)
         {
-            System.out.println("ServerSocket: Port " + port + " scheint belegt zu sein");
+            ServerHelper.log(LogType.SERVERUTIL, "ServerSocket: Port " + port + " scheint belegt zu sein");
         }
     }
 
@@ -25,7 +27,7 @@ public class ServerSocketAccepter extends Thread
     {
         if(socket == null)
         {
-            System.out.println("ServerSocket wurde nicht erstellt");
+            ServerHelper.log(LogType.SERVERUTIL, "ServerSocket wurde nicht erstellt");
             return;
         }
         while(!socket.isClosed())
@@ -37,7 +39,7 @@ public class ServerSocketAccepter extends Thread
             }
             catch (IOException e)
             {
-                System.out.println("Fehler bei der Verbindungsherstellung zu einem Clienten");
+                ServerHelper.log(LogType.SERVERUTIL, "Fehler bei der Verbindungsherstellung zu einem Clienten");
             }
         }
     }
@@ -49,7 +51,7 @@ public class ServerSocketAccepter extends Thread
         }
         catch(IOException e)
         {
-            System.out.println("Fehler beim Schließen des Serversockets");
+            ServerHelper.log(LogType.SERVERUTIL, "Fehler beim Schließen des Serversockets");
         }
     }
 }

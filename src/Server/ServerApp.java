@@ -18,7 +18,7 @@ public class ServerApp extends JFrame
     public ServerApp()
     {
         setSize(width, height);
-        setTitle("Doppelkopfclient");
+        setTitle("Doppelkopfserver");
         setVisible(true);
 
         ServerHelper.init();
