@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="dba48d3a-b6ce-461e-a37c-f5ddcc387704" name="Default" comment="Clientklasse, geschlossene Sockets  hinzugefügt">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/.gitignore" />
-      <change type="DELETED" beforePath="D:\Projekte\Doppelkopf\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Projekte\Doppelkopf\META-INF\application.xml" afterPath="" />
+    <list default="true" readonly="true" id="dba48d3a-b6ce-461e-a37c-f5ddcc387704" name="Default" comment="Gitignore für xml Dateien">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.gitignore" afterPath="$PROJECT_DIR$/.idea/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/.gitignore" afterPath="$PROJECT_DIR$/META-INF/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored mask="*.xml" />
     <ignored mask="*.name" />
@@ -36,7 +35,7 @@
     <file path="/ServerSocketAccepter.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384652758104" ignored="false" />
     <file path="/ServerHelper.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659943674" ignored="false" />
     <file path="/ClientHelper.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384659844932" ignored="false" />
-    <file path="/Dummy.txt" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384933382794" ignored="false" />
+    <file path="/Dummy.txt" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384933560962" ignored="false" />
     <file path="/Karte.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669110777" ignored="false" />
     <file path="/Farbe.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669031868" ignored="false" />
     <file path="/Deck.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384669960765" ignored="false" />
@@ -47,7 +46,7 @@
     <file path="/ControllerInterface.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384918269319" ignored="false" />
     <file path="/LogType.java" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384930689256" ignored="false" />
     <file path="/a.dummy" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384931036415" ignored="false" />
-    <file path="/.gitignore" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384933281705" ignored="false" />
+    <file path="/.gitignore" changelist="dba48d3a-b6ce-461e-a37c-f5ddcc387704" time="1384933554178" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Client/ClientApp.java" />
         <option value="$PROJECT_DIR$/src/Util/LogType.java" />
         <option value="$PROJECT_DIR$/src/Client/ClientUtil/ThreadSocket.java" />
         <option value="$PROJECT_DIR$/src/Client/Controller/Controller.java" />
@@ -182,6 +180,7 @@
         <option value="$PROJECT_DIR$/src/Util/Message.java" />
         <option value="$PROJECT_DIR$/src/Util/DokoHelper.java" />
         <option value="$PROJECT_DIR$/src/Server/ServerApp.java" />
+        <option value="$PROJECT_DIR$/.idea/.gitignore" />
         <option value="$PROJECT_DIR$/META-INF/.gitignore" />
       </list>
     </option>
@@ -618,7 +617,11 @@
       <created>1384931716686</created>
       <updated>1384931716686</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Gitignore für xml Dateien">
+      <created>1384933524940</created>
+      <updated>1384933524940</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -696,7 +699,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logmethoden hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gitignore für xml Dateien" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -720,6 +723,7 @@
     <MESSAGE value="Clientklasse, geschlossene Sockets  hinzugefügt" />
     <MESSAGE value="Message-Klasse in Netzwerkkommunikation hinzugefügt" />
     <MESSAGE value="Logmethoden hinzugefügt" />
+    <MESSAGE value="Gitignore für xml Dateien" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -822,14 +826,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
+        <state line="1" column="51" selection-start="17" selection-end="17" vertical-scroll-proportion="0.036876354">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="31" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
+        <state line="0" column="10" selection-start="5" selection-end="17" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
