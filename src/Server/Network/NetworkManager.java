@@ -3,6 +3,8 @@ package Server.Network;
 import Server.ServerUtil.Client;
 import Server.ServerUtil.ServerHelper;
 import Server.ServerUtil.ServerSocketAccepter;
+import Util.Message;
+import Util.MessageType;
 import Util.SocketReader;
 import Server.ServerUtil.ThreadSocket;
 import java.net.Socket;
@@ -32,13 +34,18 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessage(String message)
     {
+        sendMessage(new Message(MessageType.GENERAL, message));
+    }
+
+    public void sendMessage(Message message)
+    {
         sendMessage(message, 0);
     }
 
-    public void sendMessage(String message, int index)
+    public void sendMessage(Message message, int index)
     {
         try{
-            clients.get(index).sendMessage(message);
+            clients.get(index).sendMessage(message.getFullMessage());
         }
         catch(NullPointerException e)
         {
@@ -48,17 +55,24 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessageToAll(String message)
     {
+        sendMessageToAll(new Message(MessageType.GENERAL, message));
+    }
+
+    public void sendMessageToAll(Message message)
+    {
         if(clients.size() == 0)
-            System.out.println("Keine Sockets vorhanden für sendMessageToAll");
+            System.out.println("Keine Sockets vorhanden für sendMessageToAll (Nachricht: " + message.getFullMessage() + ")");
         for(Client client : clients)
         {
-            client.sendMessage(message);
+            client.sendMessage(message.getFullMessage());
+            System.out.println("Sende Nachricht [Typ: " + message.getType().name() + "]: " + message.getMessage());
         }
     }
 
     public void receiveMessage(String message, String ip, int port)
     {
-        ServerHelper.getController().receiveMessage(message);
+        Message tmp = new Message(message, ip, port);
+        ServerHelper.getController().receiveMessage(tmp);
     }
 
     public void clientClosed(Client client)

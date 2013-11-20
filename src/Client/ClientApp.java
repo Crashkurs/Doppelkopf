@@ -2,6 +2,8 @@ package Client;
 
 import Client.ClientUtil.ClientHelper;
 import Client.GUI.GuiManager;
+import Util.Message;
+import Util.MessageType;
 import Util.State;
 
 import javax.swing.*;
@@ -29,6 +31,6 @@ public class ClientApp extends JFrame
         ClientHelper.getGuiManager().setState(State.Login);
 
         ClientHelper.getNetworkManager().connect("127.0.0.1", 3000);
-        ClientHelper.getNetworkManager().sendMessageToAll("hey Leute");
+        ClientHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.JOINGAME, "hey Leute"));
     }
 }

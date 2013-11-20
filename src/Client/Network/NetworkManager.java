@@ -1,6 +1,8 @@
 package Client.Network;
 
 import Client.ClientUtil.ClientHelper;
+import Util.Message;
+import Util.MessageType;
 import Util.SocketReader;
 import Server.ServerUtil.ThreadSocket;
 
@@ -24,13 +26,18 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessage(String message)
     {
+        sendMessage(new Message(MessageType.GENERAL, message));
+    }
+
+    public void sendMessage(Message message)
+    {
         sendMessage(message, 0);
     }
 
-    public void sendMessage(String message, int index)
+    public void sendMessage(Message message, int index)
     {
         try{
-            sockets.get(index).sendMessage(message);
+            sockets.get(index).sendMessage(message.getFullMessage());
         }
         catch(NullPointerException e)
         {
@@ -40,16 +47,22 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessageToAll(String message)
     {
+        sendMessageToAll(new Message(MessageType.GENERAL, message));
+    }
+
+    public void sendMessageToAll(Message message)
+    {
         if(sockets.size() == 0)
-            System.out.println("Keine Sockets vorhanden für sendMessageToAll");
+            System.out.println("Keine Sockets vorhanden für sendMessageToAll (Nachricht: " + message.getFullMessage() + ")");
         for(ThreadSocket socket : sockets)
         {
-            socket.sendMessage(message);
+            socket.sendMessage(message.getFullMessage());
+            System.out.println("Sende Nachricht [Typ: " + message.getType().name() + "]: " + message.getMessage());
         }
     }
 
     public void receiveMessage(String message, String ip, int port)
     {
-        ClientHelper.getController().receiveMessage(message);
+        ClientHelper.getController().receiveMessage(new Message(message, ip, port));
     }
 }
