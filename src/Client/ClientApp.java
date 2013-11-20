@@ -31,6 +31,6 @@ public class ClientApp extends JFrame
         ClientHelper.getGuiManager().setState(State.Login);
 
         ClientHelper.getNetworkManager().connect("127.0.0.1", 3000);
-        ClientHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.JOINGAME, "hey Leute"));
+        ClientHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.SENDNAME, "Testname"));
     }
 }

@@ -60,6 +60,7 @@ public class Client
 
     public void setName(String _name)
     {
+        ServerHelper.log(LogType.SERVERUTIL, "Client " + ip + ":" + port + " hat jetzt den Namen " + _name);
         name = _name;
     }
 

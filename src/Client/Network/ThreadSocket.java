@@ -78,6 +78,11 @@ public class ThreadSocket implements SocketReader
         ClientHelper.getNetworkManager().receiveMessage(message, ip, port);
     }
 
+    public boolean isConnected()
+    {
+        return !socket.isClosed();
+    }
+
     public void close()
     {
         networkThread.close();

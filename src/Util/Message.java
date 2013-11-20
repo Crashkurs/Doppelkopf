@@ -11,8 +11,8 @@ public class Message
     private MessageType type;
     private String message;
 
-    private String ip;
-    private int port;
+    private String ip = "0.0.0.0";
+    private int port = -1;
 
     public Message(MessageType _type, String _message)
     {
@@ -20,9 +20,11 @@ public class Message
         message = _message;
     }
 
-    public Message(String incomingMessage, String ip, int port)
+    public Message(String incomingMessage, String _ip, int _port)
     {
         int separator = incomingMessage.indexOf("|");
+        ip = _ip;
+        port = _port;
         if(separator != -1)
         {
             try{
@@ -52,5 +54,15 @@ public class Message
     public MessageType getType()
     {
         return type;
+    }
+
+    public String getIp()
+    {
+        return ip;
+    }
+
+    public int getPort()
+    {
+        return port;
     }
 }

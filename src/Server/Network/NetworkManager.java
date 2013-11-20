@@ -97,4 +97,30 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
             ServerHelper.log(LogType.ERROR, "Client wurde geschlossen, ist aber nicht in der Clientliste");
         }
     }
+
+    public void clientClosed(String ip, int port)
+    {
+        clientClosed(getClient(ip, port));
+    }
+
+    public LinkedList<Client> getClients()
+    {
+        return clients;
+    }
+
+    public Client getClient(int index)
+    {
+        return clients.get(index);
+    }
+
+    public Client getClient(String ip, int port)
+    {
+        for(Client client : clients)
+        {
+            if(client.getIp().equals(ip) && client.getPort() == port)
+                return client;
+        }
+
+        return null;
+    }
 }

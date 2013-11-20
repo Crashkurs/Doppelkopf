@@ -5,7 +5,7 @@ import Util.LogType;
 import Util.Message;
 import Util.MessageType;
 import Util.SocketReader;
-import Server.Network.ThreadSocket;
+import Client.Network.ThreadSocket;
 
 import java.util.LinkedList;
 

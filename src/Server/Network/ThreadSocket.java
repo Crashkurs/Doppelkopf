@@ -40,6 +40,8 @@ public class ThreadSocket implements SocketReader
             {
                 ServerHelper.log(LogType.ERROR, "Fehler beim Speichern der Clientattribute");
             }
+        }else{
+            ServerHelper.log(LogType.ERROR, "Threadsocket konnte wegen einem nicht verbundenen Socket nicht erstellt werden");
         }
     }
 
