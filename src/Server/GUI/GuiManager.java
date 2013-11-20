@@ -55,7 +55,7 @@ public class GuiManager extends JPanel implements GuiManagerInterface
             return (JPanel)lobby;
         if(state == State.Game)
             return (JPanel)game;
-        ServerHelper.log(LogType.GUI, "Fehler im GuiManager: state ist "+state);
+        ServerHelper.log(LogType.GUI, "Fehler im GuiManager: state ist " + state);
         return null;
     }
 

@@ -1,14 +1,22 @@
 package Util;
 
+import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DokoHelper
 {
     private static boolean debugController = true;
     private static boolean debugDatabase = true;
     private static boolean debugGui = true;
-    private static boolean debugNetwork = false;
+    private static boolean debugNetwork = true;
     private static boolean debugClientUtil = true;
     private static boolean debugServerUtil = true;
     private static boolean debugUtil = true;
+    private static boolean debugError = true;
 
     public static void init()
     {
@@ -75,11 +83,22 @@ public class DokoHelper
                 }
                 break;
             }
+            case ERROR:
+            {
+                if(debugError)
+                {
+                    Write("[ERROR]" + logMessage);
+                }
+                break;
+            }
         }
     }
 
     private static void Write(String message)
     {
-        System.out.println(message);
+        Date timestamp = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+
+        System.out.println("[" + sdf.format(timestamp) + "]" + message);
     }
 }

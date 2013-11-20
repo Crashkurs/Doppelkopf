@@ -14,5 +14,6 @@ public enum LogType
     NETWORK,
     CLIENTUTIL,
     SERVERUTIL,
-    UTIL
+    UTIL,
+    ERROR
 }

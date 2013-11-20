@@ -1,5 +1,6 @@
 package Server.ServerUtil;
 
+import Server.Network.ThreadSocket;
 import Util.Karte;
 import Util.LogType;
 
@@ -25,6 +26,7 @@ public class Client
     public Client()
     {
         hand = new ArrayList<Karte>();
+        ServerHelper.log(LogType.SERVERUTIL, "Client erstellt");
     }
 
     public Client(String _name)
@@ -92,7 +94,7 @@ public class Client
         {
             hand.remove(karte);
         }else{
-            ServerHelper.log(LogType.SERVERUTIL, "Fehler: Client " + name + "(" + ip + ":" + port + ") hat eine nicht vorhandene Karte (" + karte.getFarbe() + "|" + karte.getTyp() + ") gelegt.");
+            ServerHelper.log(LogType.ERROR, "Fehler: Client " + name + "(" + ip + ":" + port + ") hat eine nicht vorhandene Karte (" + karte.getFarbe() + "|" + karte.getTyp() + ") gelegt.");
         }
     }
 
@@ -102,7 +104,7 @@ public class Client
         {
             socket.sendMessage(message);
         }else{
-            ServerHelper.log(LogType.SERVERUTIL, "Konnte Nachricht nicht senden, da Socket geschlossen ist");
+            ServerHelper.log(LogType.ERROR, "Konnte Nachricht nicht senden, da Socket geschlossen ist");
             ServerHelper.getNetworkManager().clientClosed(this);
         }
     }

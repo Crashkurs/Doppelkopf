@@ -9,6 +9,7 @@ package Util;
 public enum MessageType
 {
     GENERAL,        //Dieser Typ muss erhalten bleiben, wird als Standardwert gesetzt
+    CLOSE,
     SENDNAME,
     JOINLOBBY,
     LEAVELOBBY,

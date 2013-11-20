@@ -5,7 +5,7 @@ import Util.LogType;
 import Util.Message;
 import Util.MessageType;
 import Util.SocketReader;
-import Server.ServerUtil.ThreadSocket;
+import Server.Network.ThreadSocket;
 
 import java.util.LinkedList;
 
@@ -55,7 +55,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         }
         catch(NullPointerException e)
         {
-            ClientHelper.log(LogType.NETWORK, "Socket mit Index " + index + " ist nicht vorhanden");
+            ClientHelper.log(LogType.ERROR, "Socket mit Index " + index + " ist nicht vorhanden");
         }
     }
 
@@ -80,6 +80,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void receiveMessage(String message, String ip, int port)
     {
+        ClientHelper.log(LogType.NETWORK, "Empfange Nachricht von " + ip + ":" + port);
         ClientHelper.getController().receiveMessage(new Message(message, ip, port));
     }
 }

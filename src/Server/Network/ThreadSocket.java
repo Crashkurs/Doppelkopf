@@ -1,5 +1,6 @@
-package Server.ServerUtil;
+package Server.Network;
 
+import Server.ServerUtil.ServerHelper;
 import Util.LogType;
 import Util.SocketReader;
 
@@ -37,7 +38,7 @@ public class ThreadSocket implements SocketReader
             }
             catch(IOException e)
             {
-                ServerHelper.log(LogType.SERVERUTIL, "Fehler beim Speichern der Clientattribute");
+                ServerHelper.log(LogType.ERROR, "Fehler beim Speichern der Clientattribute");
             }
         }
     }
@@ -56,7 +57,7 @@ public class ThreadSocket implements SocketReader
         }
         catch(IOException e)
         {
-            ServerHelper.log(LogType.SERVERUTIL, "Verbindung zu "+ip+":"+port+" ist fehlgeschlagen");
+            ServerHelper.log(LogType.ERROR, "Verbindung zu "+ip+":"+port+" ist fehlgeschlagen");
         }
     }
 
@@ -68,12 +69,13 @@ public class ThreadSocket implements SocketReader
         }
         catch(NullPointerException e)
         {
-            ServerHelper.log(LogType.SERVERUTIL, "Kein Outputstream für " + ip + ":" + port + " vorhanden");
+            ServerHelper.log(LogType.ERROR, "Kein Outputstream für " + ip + ":" + port + " vorhanden");
         }
     }
 
     public void receiveMessage(String message, String ip, int port)
     {
+        ServerHelper.log(LogType.NETWORK, "Empfange Nachricht von " + ip + ":" + port);
         ServerHelper.getNetworkManager().receiveMessage(message, ip, port);
     }
 
@@ -110,7 +112,7 @@ public class ThreadSocket implements SocketReader
                 threadSocket = (ThreadSocket)_threadSocket;
                 socket = _socket;
             }else{
-                ServerHelper.log(LogType.SERVERUTIL, "Threadsocket implementiert das SocketReader-Interface nicht");
+                ServerHelper.log(LogType.ERROR, "Threadsocket implementiert das SocketReader-Interface nicht");
             }
         }
 
@@ -124,11 +126,11 @@ public class ThreadSocket implements SocketReader
                 }
                 catch(IOException e)
                 {
-                    ServerHelper.log(LogType.SERVERUTIL, "Fehler beim Empfangen einer Nachricht");
+                    ServerHelper.log(LogType.ERROR, "Fehler beim Empfangen einer Nachricht (IOException)");
                     close();
                 }
             }
-            ServerHelper.log(LogType.SERVERUTIL, "Networkthread closed");
+            ServerHelper.log(LogType.NETWORK, "Verbindung zu " + socket.getInetAddress().getHostAddress() + ":" + socket.getPort() + " unterbrochen");
             close();
         }
 
@@ -140,7 +142,7 @@ public class ThreadSocket implements SocketReader
             }
             catch(IOException e)
             {
-                ServerHelper.log(LogType.SERVERUTIL, "Socket konnte nicht geschlossen werden");
+                ServerHelper.log(LogType.ERROR, "Socket konnte nicht geschlossen werden");
             }
         }
     }
