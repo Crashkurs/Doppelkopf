@@ -20,6 +20,14 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void connect(String ip, int port)
     {
+        if(sockets.size() > 0)
+        {
+            for(ThreadSocket socket : sockets)
+            {
+                socket.close();
+                sockets.remove(socket);
+            }
+        }
         ThreadSocket socket = new ThreadSocket();
         socket.connect(ip, port);
         sockets.add(socket);
