@@ -30,7 +30,10 @@ public class ClientApp extends JFrame
         ClientHelper.getGuiManager().setBounds(200, 200, width, height);
         ClientHelper.getGuiManager().setState(State.Login);
 
+
+        //Testfälle für Verbindung
         ClientHelper.getNetworkManager().connect("127.0.0.1", 3000);
         ClientHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.SENDNAME, "Testname"));
+        ClientHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.PLAYCARD, "Herz|Zehn"));
     }
 }

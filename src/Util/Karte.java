@@ -13,8 +13,20 @@ public class Karte
 
     public Karte(Farbe _farbe, Typ _typ)
     {
-        farbe = farbe;
+        farbe = _farbe;
         typ = _typ;
+    }
+
+    public Karte(String incomingKarte)
+    {
+        String[] teile = incomingKarte.split("\\|");
+        if(teile.length >= 2)
+        {
+            farbe = Farbe.valueOf(teile[0]);
+            typ = Typ.valueOf(teile[1]);
+        }else{
+            DokoHelper.log(LogType.ERROR, "Karte wurde nicht ordnungsgemäß vom Client gesendet");
+        }
     }
 
     public Farbe getFarbe()
@@ -29,6 +41,6 @@ public class Karte
 
     public String toString()
     {
-        return "(" + farbe.toString() + "|" + typ.toString() + ")";
+        return farbe.toString() + "|" + typ.toString();
     }
 }

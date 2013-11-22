@@ -95,7 +95,7 @@ public class Client
         {
             hand.remove(karte);
         }else{
-            ServerHelper.log(LogType.ERROR, "Fehler: Client " + name + "(" + ip + ":" + port + ") hat eine nicht vorhandene Karte (" + karte.getFarbe() + "|" + karte.getTyp() + ") gelegt.");
+            ServerHelper.log(LogType.ERROR, "Client " + name + "(" + ip + ":" + port + ") hat eine nicht vorhandene Karte " + karte.toString() + " gelegt.");
         }
     }
 

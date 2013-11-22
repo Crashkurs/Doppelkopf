@@ -1,9 +1,11 @@
 package Server.Controller;
 
 import Server.ServerUtil.ServerHelper;
+import Util.Karte;
 import Util.LogType;
 import Util.Message;
 import Util.MessageType;
+import Server.ServerUtil.Client;
 
 public class Controller implements ControllerInterface
 {
@@ -54,6 +56,14 @@ public class Controller implements ControllerInterface
 
             case LEAVELOBBY:
             {
+                break;
+            }
+
+            case PLAYCARD:
+            {
+                Karte karte = new Karte(message.getMessage());
+                Client client = ServerHelper.getNetworkManager().getClient(message.getIp(), message.getPort());
+                client.legeKarte(karte);
                 break;
             }
         }
