@@ -5,7 +5,6 @@ import Util.LogType;
 import Util.Message;
 import Util.MessageType;
 import Util.SocketReader;
-import Client.Network.ThreadSocket;
 
 import java.util.LinkedList;
 
@@ -48,7 +47,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         try{
             if(sockets.get(index).isConnected())
             {
-                sockets.get(index).sendMessage(message.getFullMessage());
+                sockets.get(index).sendMessage(message);
             }else{
                 sockets.remove(index);
             }
@@ -73,14 +72,14 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         }
         for(ThreadSocket socket : sockets)
         {
-            socket.sendMessage(message.getFullMessage());
+            socket.sendMessage(message);
             ClientHelper.log(LogType.NETWORK, "Sende Nachricht [Typ: " + message.getType().name() + "]: " + message.getMessage());
         }
     }
 
-    public void receiveMessage(String message, String ip, int port)
+    public void receiveMessage(Message message)
     {
-        ClientHelper.log(LogType.NETWORK, "Empfange Nachricht von " + ip + ":" + port);
-        ClientHelper.getController().receiveMessage(new Message(message, ip, port));
+        ClientHelper.log(LogType.NETWORK, "Empfange Nachricht von " + message.getIp() + ":" + message.getPort());
+        ClientHelper.getController().receiveMessage(message);
     }
 }

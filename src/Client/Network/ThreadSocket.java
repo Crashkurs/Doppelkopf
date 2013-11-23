@@ -2,6 +2,7 @@ package Client.Network;
 
 import Client.ClientUtil.ClientHelper;
 import Util.LogType;
+import Util.Message;
 import Util.SocketReader;
 
 import java.io.*;
@@ -11,8 +12,8 @@ import java.net.Socket;
 public class ThreadSocket implements SocketReader
 {
     private Socket socket;
-    private PrintWriter writer;
-    private BufferedReader reader;
+    private ObjectOutputStream writer;
+    private ObjectInputStream reader;
     private NetworkThread networkThread;
 
     private String ip;
@@ -31,8 +32,8 @@ public class ThreadSocket implements SocketReader
             try{
                 ip = socket.getInetAddress().getHostAddress();
                 port = socket.getPort();
-                writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                writer = new ObjectOutputStream(socket.getOutputStream());
+                reader = new ObjectInputStream(socket.getInputStream());
                 networkThread = new NetworkThread(this,socket);
                 networkThread.start();
             }
@@ -50,8 +51,8 @@ public class ThreadSocket implements SocketReader
             this.ip = ip;
             this.port = port;
             socket.connect(new InetSocketAddress(ip, port));
-            writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            writer = new ObjectOutputStream(socket.getOutputStream());
+            reader = new ObjectInputStream(socket.getInputStream());
             networkThread = new NetworkThread(this,socket);
             networkThread.start();
         }
@@ -61,21 +62,25 @@ public class ThreadSocket implements SocketReader
         }
     }
 
-    public void sendMessage(String message)
+    public void sendMessage(Message message)
     {
         try{
-            writer.println(message);
+            writer.writeObject(message);
             writer.flush();
         }
         catch(NullPointerException e)
         {
             ClientHelper.log(LogType.ERROR, "Kein Outputstream für " + ip + ":" + port + " vorhanden");
         }
+        catch(IOException e)
+        {
+            ClientHelper.log(LogType.ERROR, "Fehler beim Senden einer Nachricht");
+        }
     }
 
-    public void receiveMessage(String message, String ip, int port)
+    public void receiveMessage(Message message)
     {
-        ClientHelper.getNetworkManager().receiveMessage(message, ip, port);
+        ClientHelper.getNetworkManager().receiveMessage(message);
     }
 
     public boolean isConnected()
@@ -110,13 +115,19 @@ public class ThreadSocket implements SocketReader
             while(threadSocket != null && !socket.isClosed())
             {
                 try{
-                    String message = reader.readLine();
-                    threadSocket.receiveMessage(message, socket.getInetAddress().getHostAddress(), socket.getPort());
+                    Message message = (Message) reader.readObject();
+                    message.setIp(socket.getInetAddress().getHostAddress());
+                    message.setPort(socket.getPort());
+                    threadSocket.receiveMessage(message);
                 }
                 catch(IOException e)
                 {
                     ClientHelper.log(LogType.ERROR, "Fehler beim Empfangen einer Nachricht (IOException)");
                     close();
+                }
+                catch(ClassNotFoundException e)
+                {
+                    ClientHelper.log(LogType.ERROR, "Empfangene Nachricht hat nicht den Typ Message");
                 }
             }
             ClientHelper.log(LogType.ERROR, "Verbindung zu " + socket.getInetAddress().getHostAddress() + ":" + socket.getPort() + " unterbrochen");

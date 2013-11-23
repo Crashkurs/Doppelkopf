@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class ServerApp extends JFrame
 {
-    public static int width = 1024, height = 768;
+    public static int width = 400, height = 400;
 
     public static void main(String[] args)
     {
@@ -20,6 +20,7 @@ public class ServerApp extends JFrame
         setSize(width, height);
         setTitle("Doppelkopfserver");
         setVisible(true);
+        setResizable(false);
 
         ServerHelper.init();
 

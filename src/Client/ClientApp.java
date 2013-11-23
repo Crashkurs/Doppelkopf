@@ -23,6 +23,7 @@ public class ClientApp extends JFrame
         setSize(width, height);
         setTitle("Doppelkopfclient");
         setVisible(true);
+        setResizable(false);
 
         ClientHelper.init();
 

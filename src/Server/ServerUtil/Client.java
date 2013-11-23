@@ -3,6 +3,7 @@ package Server.ServerUtil;
 import Server.Network.ThreadSocket;
 import Util.Karte;
 import Util.LogType;
+import Util.Message;
 
 import java.net.Socket;
 import java.util.ArrayList;
@@ -99,7 +100,7 @@ public class Client
         }
     }
 
-    public void sendMessage(String message)
+    public void sendMessage(Message message)
     {
         if(socket.isConnected())
         {

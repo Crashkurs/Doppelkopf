@@ -47,7 +47,7 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
     {
         removeClosedClients();
         try{
-            clients.get(index).sendMessage(message.getFullMessage());
+            clients.get(index).sendMessage(message);
             ServerHelper.log(LogType.NETWORK, "Sende Nachricht an Client " + index + " [Typ: " + message.getType().name() + "]: " + message.getMessage());
         }
         catch(NullPointerException e)
@@ -66,15 +66,14 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         removeClosedClients();
         for(Client client : clients)
         {
-            client.sendMessage(message.getFullMessage());
+            client.sendMessage(message);
             ServerHelper.log(LogType.NETWORK, "Sende Nachricht an Client " + clients.indexOf(client) + " [Typ: " + message.getType().name() + "]: " + message.getMessage());
         }
     }
 
-    public void receiveMessage(String message, String ip, int port)
+    public void receiveMessage(Message message)
     {
-        Message tmp = new Message(message, ip, port);
-        ServerHelper.getController().receiveMessage(tmp);
+        ServerHelper.getController().receiveMessage(message);
     }
 
     public void removeClosedClients()

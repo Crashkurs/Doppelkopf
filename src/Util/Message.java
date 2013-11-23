@@ -1,12 +1,14 @@
 package Util;
 
+import java.io.Serializable;
+
 /**
  * Doppelkopf-Projekt
  * Benutzer: Mats
  * Datum: 18.11.13
  * Klasse: MessageType
  */
-public class Message
+public class Message implements Serializable
 {
     private MessageType type;
     private String message;
@@ -18,27 +20,6 @@ public class Message
     {
         type = _type;
         message = _message;
-    }
-
-    public Message(String incomingMessage, String _ip, int _port)
-    {
-        int separator = incomingMessage.indexOf("|");
-        ip = _ip;
-        port = _port;
-        if(separator != -1)
-        {
-            try{
-                int typeInt = Integer.parseInt(incomingMessage.substring(0,separator));
-                type = MessageType.values()[typeInt];
-                message = incomingMessage.substring(separator+1);
-            }
-            catch(NumberFormatException e)
-            {
-                DokoHelper.log(LogType.UTIL, "Ungültiger Nachrichtentyp spezifiziert");
-            }
-        }else{
-            DokoHelper.log(LogType.UTIL, "Fehler beim Initialisieren einer Nachricht: Kein Typ spezifiziert");
-        }
     }
 
     public String getMessage()
@@ -64,5 +45,15 @@ public class Message
     public int getPort()
     {
         return port;
+    }
+
+    public void setIp(String _ip)
+    {
+        ip = _ip;
+    }
+
+    public void setPort(int _port)
+    {
+        port = _port;
     }
 }
