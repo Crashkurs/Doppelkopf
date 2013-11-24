@@ -34,7 +34,9 @@ public class ClientApp extends JFrame
 
         //Testfälle für Verbindung
         ClientHelper.getNetworkManager().connect("127.0.0.1", 3000);
-        ClientHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.SENDNAME, "Testname"));
+        Message msg = new Message(MessageType.SENDNAME, "Test");
+        msg.addParam("testParam", MessageType.CLOSE);
+        ClientHelper.getNetworkManager().sendMessageToAll(msg);
         ClientHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.PLAYCARD, "Herz|Zehn"));
     }
 }

@@ -1,10 +1,7 @@
 package Server.Controller;
 
 import Server.ServerUtil.ServerHelper;
-import Util.Karte;
-import Util.LogType;
-import Util.Message;
-import Util.MessageType;
+import Util.*;
 import Server.ServerUtil.Client;
 
 public class Controller implements ControllerInterface
@@ -19,7 +16,15 @@ public class Controller implements ControllerInterface
     {
         ServerHelper.log(LogType.CONTROLLER, "Empfange Nachricht [Typ: " + message.getType().name() + "]" + ": " + message.getMessage());
         ServerHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.GENERAL , "Nachricht empfangen"));
-
+        //Test für das Hinzufügen von Parametern bei einer Nachricht
+        try
+        {
+            MessageType mt = (MessageType) message.getParam("testParam");
+            ServerHelper.log(LogType.CONTROLLER, "Parameter testParam hat den Wert " + mt.name());
+        } catch (ParamNotDefinedException e)
+        {
+            ServerHelper.log(LogType.ERROR, "Parameter testParam ist nicht gesetzt");
+        }
         switch(message.getType())
         {
             case GENERAL:

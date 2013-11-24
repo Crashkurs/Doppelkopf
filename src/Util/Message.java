@@ -1,6 +1,7 @@
 package Util;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  * Doppelkopf-Projekt
@@ -16,10 +17,13 @@ public class Message implements Serializable
     private String ip = "0.0.0.0";
     private int port = -1;
 
+    private HashMap<String, Object> param;
+
     public Message(MessageType _type, String _message)
     {
         type = _type;
         message = _message;
+        param = new HashMap<String, Object>();
     }
 
     public String getMessage()
@@ -55,5 +59,23 @@ public class Message implements Serializable
     public void setPort(int _port)
     {
         port = _port;
+    }
+
+    public void addParam(String paramName, Object object)
+    {
+        if(!param.containsKey(paramName))
+        {
+            param.put(paramName, object);
+        }
+    }
+
+    public Object getParam(String paramName) throws ParamNotDefinedException
+    {
+        if(param.containsKey(paramName))
+        {
+            return param.get(paramName);
+        }else{
+            throw new ParamNotDefinedException("Parameter " + paramName + " ist in der Message nicht gesetzt");
+        }
     }
 }
