@@ -48,13 +48,25 @@ public class ServerSocketAccepter extends Thread
 
     public void close()
     {
-        try{
-            socket.close();
-            ServerHelper.log(LogType.NETWORK, "ServerSocket geschlossen");
-        }
-        catch(IOException e)
+        if(socket != null)
         {
-            ServerHelper.log(LogType.ERROR, "Fehler beim Schließen des Serversockets");
+            try{
+                socket.close();
+                ServerHelper.log(LogType.NETWORK, "ServerSocket geschlossen");
+            }
+            catch(IOException e)
+            {
+                ServerHelper.log(LogType.ERROR, "Fehler beim Schließen des Serversockets");
+            }
         }
+    }
+
+    public boolean isConnected()
+    {
+        if(socket != null)
+        {
+            return !socket.isClosed();
+        }
+        return false;
     }
 }

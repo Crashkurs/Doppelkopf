@@ -26,14 +26,14 @@ public class Message implements Serializable
         param = new HashMap<String, Object>();
     }
 
+    public Message(MessageType _type)
+    {
+        this(_type, "");
+    }
+
     public String getMessage()
     {
         return message;
-    }
-
-    public String getFullMessage()
-    {
-        return type.ordinal() + "|" + message;
     }
 
     public MessageType getType()

@@ -22,8 +22,29 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void connect(int port)
     {
+        if(accepter != null)
+            close();
         accepter = new ServerSocketAccepter(port);
         accepter.start();
+    }
+
+    public boolean isConnected()
+    {
+        if(accepter != null)
+        {
+            return accepter.isConnected();
+        }
+        return false;
+    }
+
+    public void close()
+    {
+        sendMessageToAll(new Message(MessageType.CLOSE));
+        if(accepter != null)
+            accepter.close();
+        if(clients != null)
+            clients.clear();
+        accepter = null;
     }
 
     public void createSocket(Socket s)
@@ -45,14 +66,19 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessage(Message message, int index)
     {
-        removeClosedClients();
-        try{
-            clients.get(index).sendMessage(message);
-            ServerHelper.log(LogType.NETWORK, "Sende Nachricht an Client " + index + " [Typ: " + message.getType().name() + "]: " + message.getMessage());
-        }
-        catch(NullPointerException e)
+        if(clients != null)
         {
-            ServerHelper.log(LogType.ERROR, "Socket mit Index " + index + " ist nicht vorhanden");
+            removeClosedClients();
+            try{
+                clients.get(index).sendMessage(message);
+                ServerHelper.log(LogType.NETWORK, "Sende Nachricht an Client " + index + " [Typ: " + message.getType().name() + "]: " + message.getMessage());
+            }
+            catch(NullPointerException e)
+            {
+                ServerHelper.log(LogType.ERROR, "Socket mit Index " + index + " ist nicht vorhanden");
+            }
+        }else{
+            ServerHelper.log(LogType.NETWORK, "Keine Clients vorhanden");
         }
     }
 
@@ -63,11 +89,16 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void sendMessageToAll(Message message)
     {
-        removeClosedClients();
-        for(Client client : clients)
+        if(clients != null)
         {
-            client.sendMessage(message);
-            ServerHelper.log(LogType.NETWORK, "Sende Nachricht an Client " + clients.indexOf(client) + " [Typ: " + message.getType().name() + "]: " + message.getMessage());
+            removeClosedClients();
+            for(Client client : clients)
+            {
+                client.sendMessage(message);
+                ServerHelper.log(LogType.NETWORK, "Sende Nachricht an Client " + clients.indexOf(client) + " [Typ: " + message.getType().name() + "]: " + message.getMessage());
+            }
+        }else{
+            ServerHelper.log(LogType.NETWORK, "Keine Clients vorhanden");
         }
     }
 
@@ -78,11 +109,14 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
 
     public void removeClosedClients()
     {
-        LinkedList<Client> tmp = clients;
-        for(Client client : tmp)
+        if(clients != null)
         {
-            if(!client.isConnected())
-                clients.remove(client);
+            LinkedList<Client> tmp = clients;
+            for(Client client : tmp)
+            {
+                if(!client.isConnected())
+                    clients.remove(client);
+            }
         }
     }
 
