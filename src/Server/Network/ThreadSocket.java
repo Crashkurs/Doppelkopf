@@ -4,6 +4,7 @@ import Server.ServerUtil.ServerHelper;
 import Util.LogType;
 import Util.Message;
 import Util.SocketReader;
+import Server.ServerUtil.Client;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -11,6 +12,7 @@ import java.net.Socket;
 
 public class ThreadSocket implements SocketReader
 {
+    private Client client;
     private Socket socket;
     private ObjectOutputStream writer;
     private ObjectInputStream reader;
@@ -22,6 +24,8 @@ public class ThreadSocket implements SocketReader
     public ThreadSocket()
     {
         socket = new Socket();
+        ip = "0.0.0.0";
+        port = -1;
     }
 
     public ThreadSocket(Socket s)
@@ -44,6 +48,11 @@ public class ThreadSocket implements SocketReader
         }else{
             ServerHelper.log(LogType.ERROR, "Threadsocket konnte wegen einem nicht verbundenen Socket nicht erstellt werden");
         }
+    }
+
+    public void setClient(Client _client)
+    {
+        client = _client;
     }
 
     public void connect(String ip, int port)
@@ -88,8 +97,8 @@ public class ThreadSocket implements SocketReader
 
     public void close()
     {
-        networkThread.close();
-        System.gc();
+        if(networkThread != null)
+            networkThread.close();
     }
 
     public String getIp()
@@ -136,6 +145,8 @@ public class ThreadSocket implements SocketReader
                 catch(IOException e)
                 {
                     ServerHelper.log(LogType.ERROR, "Fehler beim Empfangen einer Nachricht (IOException)");
+                    if(client != null)
+                        client.closeClient();
                     close();
                 }
                 catch(ClassNotFoundException e)
@@ -150,7 +161,8 @@ public class ThreadSocket implements SocketReader
         public void close()
         {
             try{
-                socket.close();
+                if(socket != null)
+                    socket.close();
                 threadSocket = null;
             }
             catch(IOException e)

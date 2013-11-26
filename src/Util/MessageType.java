@@ -12,6 +12,7 @@ public enum MessageType
     CLOSE,
     JOINLOBBY,
     JOINGAME,
+    INVALIDNAME,
     LEAVELOBBY,
     LEAVEGAME,
     PLAYCARD,

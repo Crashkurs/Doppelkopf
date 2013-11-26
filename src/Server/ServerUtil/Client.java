@@ -19,6 +19,7 @@ public class Client
     private String name;
     private String ip;
     private int port;
+    private int id;
 
     private ThreadSocket socket;
 
@@ -42,12 +43,14 @@ public class Client
         socket = _socket;
         ip = socket.getIp();
         port = socket.getPort();
+        socket.setClient(this);
     }
 
     public Client(String _name, Socket _socket)
     {
         this(_name);
         socket = new ThreadSocket(_socket);
+        socket.setClient(this);
     }
 
     public Client(String _name, String _ip, int _port)
@@ -57,12 +60,23 @@ public class Client
         socket.connect(_ip, _port);
         ip = _ip;
         port = _port;
+        socket.setClient(this);
     }
 
     public void setName(String _name)
     {
         ServerHelper.log(LogType.SERVERUTIL, "Client " + ip + ":" + port + " hat jetzt den Namen " + _name);
         name = _name;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int _id)
+    {
+        id = _id;
     }
 
     public String getName()
@@ -109,6 +123,16 @@ public class Client
             ServerHelper.log(LogType.ERROR, "Konnte Nachricht nicht senden, da Socket geschlossen ist");
             ServerHelper.getNetworkManager().clientClosed(this);
         }
+    }
+
+    public void closeClient()
+    {
+        ServerHelper.getNetworkManager().clientClosed(this);
+    }
+
+    public void close()
+    {
+        socket.close();
     }
 
 }

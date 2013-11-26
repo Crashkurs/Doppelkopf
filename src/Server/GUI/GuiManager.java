@@ -32,8 +32,11 @@ public class GuiManager extends JPanel implements GuiManagerInterface, ActionLis
         setLayout(new GridBagLayout());
         controller = ServerHelper.getController();
         game = new GameGui();
+        game.setVisible(false);
         add(game);
         lobby = new LobbyGui();
+        lobby.setActionListener(this);
+        lobby.setVisible(false);
         add(lobby);
         login = new LoginGui();
         login.setActionListener(this);
@@ -72,21 +75,37 @@ public class GuiManager extends JPanel implements GuiManagerInterface, ActionLis
         GuiCommand command = GuiCommand.getCommand(e.getActionCommand());
         if(state == State.Login)
         {
-            if(command == GuiCommand.ServerStart)
+            switch (command)
             {
-                ServerHelper.getNetworkManager().connect(login.getPort());
-                if(ServerHelper.getNetworkManager().isConnected())
+                case ServerStart:
                 {
-                    login.switchStartStop();
+                    ServerHelper.getNetworkManager().connect(login.getPort());
+
+                    if(ServerHelper.getNetworkManager().isConnected())
+                    {
+                        setState(State.Lobby);
+                    }
+                    break;
                 }
             }
+        }
 
-            if(command == GuiCommand.ServerStop)
+        if(state == State.Lobby)
+        {
+            switch (command)
             {
-                ServerHelper.getNetworkManager().close();
-                if(!ServerHelper.getNetworkManager().isConnected())
+                case ServerStop:
                 {
-                    login.switchStartStop();
+                    ServerHelper.getNetworkManager().close();
+                    setState(State.Login);
+                    lobby.clearClients();
+                    break;
+                }
+
+                case GameStart:
+                {
+                    setState(State.Game);
+                    break;
                 }
             }
         }

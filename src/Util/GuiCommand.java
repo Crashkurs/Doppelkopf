@@ -9,7 +9,8 @@ package Util;
 public enum GuiCommand
 {
     ServerStart,
-    ServerStop;
+    ServerStop,
+    GameStart;
 
     public static GuiCommand getCommand(String command)
     {

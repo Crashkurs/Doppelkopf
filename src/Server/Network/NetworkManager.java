@@ -1,5 +1,6 @@
 package Server.Network;
 
+import Server.GUI.Lobby.LobbyGui;
 import Server.ServerUtil.Client;
 import Server.ServerUtil.ServerHelper;
 import Util.LogType;
@@ -43,7 +44,13 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         if(accepter != null)
             accepter.close();
         if(clients != null)
+        {
+            for(Client client: clients)
+            {
+                client.close();
+            }
             clients.clear();
+        }
         accepter = null;
     }
 
@@ -51,7 +58,9 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
     {
         ServerHelper.log(LogType.NETWORK, "Erstelle neuen Clienten für Adresse " + s.getInetAddress().getHostAddress() + ":" + s.getPort());
         ThreadSocket tmp = new ThreadSocket(s);
-        clients.add(new Client("",tmp));
+        Client client = new Client("", tmp);
+        client.setId(clients.size());
+        clients.add(client);
     }
 
     public void sendMessage(String message)
@@ -125,6 +134,8 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         if(clients.contains(client))
         {
             ServerHelper.log(LogType.NETWORK, "Entferne geschlossenen Client");
+            ((LobbyGui)ServerHelper.getGuiManager().getGui()).removeClientFromLobby(client.getName());
+            client.close();
             clients.remove(client);
         }else{
             ServerHelper.log(LogType.ERROR, "Client wurde geschlossen, ist aber nicht in der Clientliste");
@@ -151,6 +162,17 @@ public class NetworkManager implements NetworkManagerInterface, SocketReader
         for(Client client : clients)
         {
             if(client.getIp().equals(ip) && client.getPort() == port)
+                return client;
+        }
+
+        return null;
+    }
+
+    public Client getClient(String name)
+    {
+        for(Client client : clients)
+        {
+            if(client.getName().equals(name))
                 return client;
         }
 

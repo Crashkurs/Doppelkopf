@@ -1,5 +1,6 @@
 package Server.Controller;
 
+import Server.GUI.Lobby.LobbyGui;
 import Server.ServerUtil.ServerHelper;
 import Util.*;
 import Server.ServerUtil.Client;
@@ -15,16 +16,6 @@ public class Controller implements ControllerInterface
     public void receiveMessage(Message message)
     {
         ServerHelper.log(LogType.CONTROLLER, "Empfange Nachricht [Typ: " + message.getType().name() + "]" + ": " + message.getMessage());
-        ServerHelper.getNetworkManager().sendMessageToAll(new Message(MessageType.GENERAL , "Nachricht empfangen"));
-        //Test für das Hinzufügen von Parametern bei einer Nachricht
-        try
-        {
-            MessageType mt = (MessageType) message.getParam("testParam");
-            ServerHelper.log(LogType.CONTROLLER, "Parameter testParam hat den Wert " + mt.name());
-        } catch (ParamNotDefinedException e)
-        {
-            ServerHelper.log(LogType.ERROR, "Parameter testParam ist nicht gesetzt");
-        }
         switch(message.getType())
         {
             case GENERAL:
@@ -34,13 +25,23 @@ public class Controller implements ControllerInterface
 
             case CLOSE:
             {
+                Client client = ServerHelper.getNetworkManager().getClient(message.getIp(), message.getPort());
+                ((LobbyGui)ServerHelper.getGuiManager().getGui()).removeClientFromLobby(client.getName());
                 ServerHelper.getNetworkManager().clientClosed(message.getIp(), message.getPort());
                 break;
             }
 
             case SENDNAME:
             {
-                ServerHelper.getNetworkManager().getClient(message.getIp(), message.getPort()).setName(message.getMessage());
+                if(ServerHelper.getNetworkManager().getClient(message.getMessage()) == null)
+                {
+                    ServerHelper.getNetworkManager().getClient(message.getIp(), message.getPort()).setName(message.getMessage());
+                    ((LobbyGui)ServerHelper.getGuiManager().getGui()).addClientToLobby(message.getMessage());
+                }else{
+                    Client client = ServerHelper.getNetworkManager().getClient(message.getIp(), message.getPort());
+                    ServerHelper.getNetworkManager().sendMessage(new Message(MessageType.INVALIDNAME), client.getId());
+                    ServerHelper.getNetworkManager().clientClosed(client);
+                }
                 break;
             }
 
