@@ -5,12 +5,17 @@ import Server.GUI.Game.GameGui;
 import Server.GUI.Lobby.LobbyGui;
 import Server.GUI.Login.LoginGui;
 import Server.ServerUtil.ServerHelper;
+import Util.GuiCommand;
 import Util.LogType;
 import Util.State;
+import bsh.util.GUIConsoleInterface;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GuiManager extends JPanel implements GuiManagerInterface
+public class GuiManager extends JPanel implements GuiManagerInterface, ActionListener
 {
 
     private Controller controller;
@@ -23,12 +28,15 @@ public class GuiManager extends JPanel implements GuiManagerInterface
 
     public GuiManager()
     {
-        controller = (Controller) ServerHelper.getController();
+        super();
+        setLayout(new GridBagLayout());
+        controller = ServerHelper.getController();
         game = new GameGui();
         add(game);
         lobby = new LobbyGui();
         add(lobby);
         login = new LoginGui();
+        login.setActionListener(this);
         add(login);
 
         state = State.Login;
@@ -59,12 +67,28 @@ public class GuiManager extends JPanel implements GuiManagerInterface
         return null;
     }
 
-    @Override
-    public void setBounds(int x, int y, int width, int height)
+    public void actionPerformed(ActionEvent e)
     {
-        game.setBounds(0,0,width,height);
-        lobby.setBounds(0,0,width,height);
-        login.setBounds(0,0,width,height);
-        super.setBounds(x,y,width,height);
+        GuiCommand command = GuiCommand.getCommand(e.getActionCommand());
+        if(state == State.Login)
+        {
+            if(command == GuiCommand.ServerStart)
+            {
+                ServerHelper.getNetworkManager().connect(login.getPort());
+                if(ServerHelper.getNetworkManager().isConnected())
+                {
+                    login.switchStartStop();
+                }
+            }
+
+            if(command == GuiCommand.ServerStop)
+            {
+                ServerHelper.getNetworkManager().close();
+                if(!ServerHelper.getNetworkManager().isConnected())
+                {
+                    login.switchStartStop();
+                }
+            }
+        }
     }
 }

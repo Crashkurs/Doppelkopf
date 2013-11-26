@@ -24,10 +24,8 @@ public class ServerApp extends JFrame
 
         ServerHelper.init();
 
-        add(ServerHelper.getGuiManager());
         ServerHelper.getGuiManager().setBounds(0, 0, width, height);
         ServerHelper.getGuiManager().setState(State.Login);
-
-        ServerHelper.getNetworkManager().connect(3000);
+        add(ServerHelper.getGuiManager());
     }
 }
