@@ -4,6 +4,7 @@ import Server.Controller.Controller;
 import Server.Database.DatabaseManager;
 import Server.GUI.GuiManager;
 import Server.Network.NetworkManager;
+import Server.ServerApp;
 import Util.DokoHelper;
 
 public class ServerHelper extends DokoHelper
@@ -17,6 +18,13 @@ public class ServerHelper extends DokoHelper
         guiManager = new GuiManager();
         databaseManager = new DatabaseManager();
         System.gc();
+    }
+
+    private static ServerApp window;
+
+    public static ServerApp getWindow()
+    {
+        return window;
     }
 
     private static Controller controller;

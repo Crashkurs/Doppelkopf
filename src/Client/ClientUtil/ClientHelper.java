@@ -1,5 +1,6 @@
 package Client.ClientUtil;
 
+import Client.ClientApp;
 import Client.Controller.Controller;
 import Client.Database.DatabaseManager;
 import Client.GUI.GuiManager;
@@ -17,6 +18,13 @@ public class ClientHelper extends DokoHelper
         guiManager = new GuiManager();
         databaseManager = new DatabaseManager();
         System.gc();
+    }
+
+    private static ClientApp window;
+
+    public static ClientApp getWindow()
+    {
+        return window;
     }
 
     private static Controller controller;
